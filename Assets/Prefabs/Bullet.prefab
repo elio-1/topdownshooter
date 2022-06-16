@@ -353,6 +353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2D: {fileID: 7265179904461489675}
   bulletData: {fileID: 11400000, guid: 09c86682283147a4e846783edf2ef443, type: 2}
+  playerData: {fileID: 11400000, guid: 8bb995c22d9c42c4fb2f67fc0a0844c6, type: 2}
   m_bulletsGO:
   - {fileID: 5379449863615589674}
   - {fileID: 6113311748707681000}

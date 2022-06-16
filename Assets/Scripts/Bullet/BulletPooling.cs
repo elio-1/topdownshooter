@@ -42,7 +42,6 @@ public class BulletPooling : MonoBehaviour
     }
     public void ChangeActiveBullet(string newBullet)
     {
-        Debug.Log("changeactivebullet");
         BulletMovement bullet;
         for (int i = 0; i < m_amountToPool; i++)
         {
@@ -51,13 +50,11 @@ public class BulletPooling : MonoBehaviour
             {
                 if (bullet.m_bulletsGO[y].name == newBullet)
                 {
-                    bullet.m_bulletsGO[y].SetActive(true);
-                    Debug.Log("active" + bullet.m_bulletsGO[y].name);
+                    bullet.m_bulletsGO[y].SetActive(true);                 
                 }
                 else
                 {
                     bullet.m_bulletsGO[y].SetActive(false);
-                    Debug.Log("desactive" + bullet.m_bulletsGO[y].name);
                 }
             }
 

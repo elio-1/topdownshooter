@@ -19,3 +19,7 @@ MonoBehaviour:
   skin: {fileID: 0}
   bulletName: BasicBullet
   bulletSpeed: 5
+  shakeMagnitude: 0.1
+  shakeRoughness: 1
+  shakeFadeInTime: 0.05
+  shakeFadeOutTime: 0.05

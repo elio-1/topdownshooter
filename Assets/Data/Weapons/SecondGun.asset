@@ -19,3 +19,7 @@ MonoBehaviour:
   skin: {fileID: 0}
   bulletName: SecondBullet
   bulletSpeed: 3
+  shakeMagnitude: 0.1
+  shakeRoughness: 5
+  shakeFadeInTime: 0.05
+  shakeFadeOutTime: 0.05

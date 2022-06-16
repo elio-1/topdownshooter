@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Player
 {
     Rigidbody2D rigidbody2d;
     Vector2 _direction;
-    [SerializeField] Character _playerData;
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -22,6 +21,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigidbody2d.velocity = _direction.normalized * _playerData.speed * Time.deltaTime;
+        rigidbody2d.velocity = _direction.normalized * playerData.speed * Time.deltaTime;
     }
 }

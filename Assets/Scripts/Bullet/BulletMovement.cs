@@ -6,13 +6,13 @@ public class BulletMovement : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb2D;
     [SerializeField] Weapon bulletData;
-     PlayerShoot PlayerShoot;
+    PlayerShoot PlayerShoot;
+    [SerializeField] Character playerData;
     public GameObject[] m_bulletsGO;
 
     private void Awake()
     {
         PlayerShoot = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShoot>();
-
     }
     private void Update()
     {
@@ -26,5 +26,11 @@ public class BulletMovement : MonoBehaviour
         rb2D.velocity = transform.right * PlayerShoot.currentWeapon.bulletSpeed;
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<Enemy>().currentHealth -= (bulletData.damage + playerData.baseAttack);
+        }
+    }
 }

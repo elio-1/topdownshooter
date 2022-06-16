@@ -7,4 +7,6 @@ public class Character : ScriptableObject
 {
     public int health;
     public float speed;
+    public int baseAttack;
+    public int baseDefence;
 }
