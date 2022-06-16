@@ -6,10 +6,13 @@ using UnityEngine;
 public class Weapon : ScriptableObject
 {
     [Header("Gun Data")]
+    public string gunName;
     public float fireRate;
     public int damage;
     public GameObject projectile;
     public Sprite skin;
     [Header("Bullet Behavior")]
+    public string bulletName;
     public float bulletSpeed;
+
 }

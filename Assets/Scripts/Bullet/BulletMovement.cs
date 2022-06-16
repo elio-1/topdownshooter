@@ -6,8 +6,25 @@ public class BulletMovement : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb2D;
     [SerializeField] Weapon bulletData;
-    void Start()
+     PlayerShoot PlayerShoot;
+    public GameObject[] m_bulletsGO;
+
+    private void Awake()
     {
-        rb2D.AddForce(transform.right * bulletData.bulletSpeed);
+        PlayerShoot = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShoot>();
+
     }
+    private void Update()
+    {
+        if ((transform.position - PlayerShoot.transform.position).magnitude > 10)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+    private void FixedUpdate()
+    {
+        rb2D.velocity = transform.right * PlayerShoot.currentWeapon.bulletSpeed;
+    }
+
+    
 }

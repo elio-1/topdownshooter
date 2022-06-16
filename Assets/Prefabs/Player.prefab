@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6de0a4ffdec5a44f860b4eec33c029f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentWeapon: {fileID: 11400000, guid: 09c86682283147a4e846783edf2ef443, type: 2}
+  currentWeapon: {fileID: 11400000, guid: 09c86682283147a4e846783edf2ef443, type: 2}
   _barrel: {fileID: 252449147}
   _barrelParent: {fileID: 531811150047555617}
 --- !u!1 &4882437908516170455

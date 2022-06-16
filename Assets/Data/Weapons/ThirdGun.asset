@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 464c52ac3d0037048a6b4827054e80a0, type: 3}
-  m_Name: SecondGun
+  m_Name: ThirdGun
   m_EditorClassIdentifier: 
-  gunName: SecondGun
-  fireRate: 0.2
-  damage: 2
+  gunName: ThirdGun
+  fireRate: 0.5
+  damage: 4
   projectile: {fileID: 7131473093684528774, guid: 251b62a630c1875408ed433c189ca47c, type: 3}
   skin: {fileID: 0}
-  bulletName: SecondBullet
-  bulletSpeed: 3
+  bulletName: ThirdBullet
+  bulletSpeed: 10

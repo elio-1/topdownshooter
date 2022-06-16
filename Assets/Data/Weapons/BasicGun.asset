@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464c52ac3d0037048a6b4827054e80a0, type: 3}
   m_Name: BasicGun
   m_EditorClassIdentifier: 
+  gunName: BasicGun
   fireRate: 0.5
   damage: 1
   projectile: {fileID: 7131473093684528774, guid: 251b62a630c1875408ed433c189ca47c, type: 3}
   skin: {fileID: 0}
-  bulletSpeed: 500
+  bulletName: BasicBullet
+  bulletSpeed: 5
