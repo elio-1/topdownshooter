@@ -16,9 +16,20 @@ public class PlayerShoot : MonoBehaviour
     float _fireRate;
 
 
+   // SpriteRenderer SpriteRenderer;
+
+    private void Awake()
+    {
+       // SpriteRenderer = _barrelParent.GetComponent<SpriteRenderer>();
+    }
+    private void Start()
+    {
+        
+    }
     private void Update()
     {
         _shakeMagnitude = currentWeapon.shakeMagnitude;
+        //SpriteRenderer.sprite = currentWeapon.skin;
         _shakeRoughness = currentWeapon.shakeRoughness;
         _shakeFadeInTime = currentWeapon.shakeFadeInTime;
         _shakeFadeOutTime = currentWeapon.shakeFadeOutTime;
@@ -39,13 +50,14 @@ public class PlayerShoot : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(1))
         {
-
-            GameObject.Find("Pooling").GetComponent<BulletPooling>().ChangeActiveBullet(currentWeapon.bulletName);
+            ChangeWeapon();
+            
         }
     }
-    void FixedUpdate()
+    void ChangeWeapon()
     {
         
 
+        GameObject.Find("BulletPooling").GetComponent<BulletPooling>().ChangeActiveBullet(currentWeapon.bulletName);
     }
 }

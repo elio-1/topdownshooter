@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunName: ThirdGun
   fireRate: 0.5
-  damage: 4
+  damage: 10
   projectile: {fileID: 7131473093684528774, guid: 251b62a630c1875408ed433c189ca47c, type: 3}
-  skin: {fileID: 0}
+  skin: {fileID: 21300000, guid: d1acda58d6bfb0d43895f1efda0e7a90, type: 3}
   bulletName: ThirdBullet
   bulletSpeed: 10
   shakeMagnitude: 0.1

@@ -16,7 +16,7 @@ MonoBehaviour:
   fireRate: 0.2
   damage: 2
   projectile: {fileID: 7131473093684528774, guid: 251b62a630c1875408ed433c189ca47c, type: 3}
-  skin: {fileID: 0}
+  skin: {fileID: 21300000, guid: c06a6720ef254a74f862c36026034566, type: 3}
   bulletName: SecondBullet
   bulletSpeed: 3
   shakeMagnitude: 0.1

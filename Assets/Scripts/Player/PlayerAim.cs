@@ -6,6 +6,7 @@ public class PlayerAim : MonoBehaviour
 {
     [SerializeField] GameObject player;
     private float speed = 100;
+   
     void Update()
     {
 
@@ -14,5 +15,6 @@ public class PlayerAim : MonoBehaviour
         Quaternion rotation  = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
     }
+
 
 }
