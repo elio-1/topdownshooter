@@ -10,5 +10,5 @@ public class Character : ScriptableObject
     public float speed;
     public int baseAttack;
     public int baseDefence;
-
+    public float attackSpeed;
 }

@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class EnemiesSpawner : MonoBehaviour
 {
-    bool var = true;
+    public bool spawnEnemies = true;
     [SerializeField] Transform _player;
      [SerializeField] float _radius = 20;
+    [SerializeField] int _enemiesToSpawn;
+    [SerializeField] float _enemiesSpawnRate = 5;
+
+    private float _spawntimer = 0;
     private void Update()
     {
-       
-        if (var)
+        _spawntimer += Time.deltaTime;
+        if (spawnEnemies || _spawntimer > _enemiesSpawnRate)
         {
-            SpawnEnemies(10, "Enemy2");
-            var = false;
+            SpawnEnemies(_enemiesToSpawn, "Enemy2");
+            spawnEnemies = false;
+            _spawntimer = 0;
         }
             
         
@@ -22,9 +27,33 @@ public class EnemiesSpawner : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-        GameObject enemies = EnemiesPooling.m_EnemyInstance.GetEnemy(name);
-            enemies.transform.position = _player.position + Random.onUnitSphere * _radius ;
+            GameObject enemies = EnemiesPooling.m_EnemyInstance.GetEnemy(name);
+            if (enemies != null)
+            {
+                float seed = Random.Range(0, 5);
+                Vector3 randomPos= _player.position;
+                if (seed > 3)
+                {
+                    randomPos += new Vector3(Random.Range(10, 13), Random.Range(-8, 8), 0);
+                }
+                else if (seed > 2)
+                {
+                    randomPos += new Vector3(Random.Range(-10, -13), Random.Range(-8, 8), 0);
+
+                }
+                else if (seed > 1)
+                {
+                    randomPos += new Vector3(Random.Range(-10, 10), Random.Range(8, 11), 0);
+
+                }
+                else
+                {
+                    randomPos += new Vector3(Random.Range(-10, 10), Random.Range(-8, -11), 0);
+
+                }
+                enemies.transform.position = randomPos ;
             enemies.SetActive(true);
+            }
         }
     }
     

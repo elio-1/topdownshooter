@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : Enemy
 {
-    [SerializeField] Transform player;
+    Transform player;
     private Rigidbody2D rb2D;
 
     private Vector2 _direction;
@@ -14,7 +14,7 @@ public class EnemyMovement : Enemy
         rb2D = GetComponent<Rigidbody2D>();
         if (player == null)
         {
-            GameObject.FindGameObjectsWithTag("Player");
+            player = GameObject.FindGameObjectWithTag("Player").transform;
         }
     }
     void Update()
