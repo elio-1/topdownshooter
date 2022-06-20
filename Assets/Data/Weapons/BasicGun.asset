@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: BasicGun
   m_EditorClassIdentifier: 
   gunName: BasicGun
-  fireRate: 0.5
+  fireRate: 0.15
   damage: 3
   projectile: {fileID: 7131473093684528774, guid: 251b62a630c1875408ed433c189ca47c, type: 3}
   skin: {fileID: 21300000, guid: 412e25359354d404ba161cbd414c6aae, type: 3}
   bulletName: BasicBullet
   bulletSpeed: 5
-  shakeMagnitude: 0.1
-  shakeRoughness: 2
+  shakeMagnitude: 0.2
+  shakeRoughness: 3.45
   shakeFadeInTime: 0.05
   shakeFadeOutTime: 0.05

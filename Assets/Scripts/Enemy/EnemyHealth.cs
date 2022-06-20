@@ -16,6 +16,7 @@ public class EnemyHealth : Enemy
     {
         if (currentHealth <= 0)
         {
+            gameObject.transform.parent.gameObject.SetActive(false);
             gameObject.SetActive(false);
         }
     }

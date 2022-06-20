@@ -19,7 +19,7 @@ public class EnemyAttack : Enemy
 
             if ( timer > enemyData.attackSpeed )
             {
-                int playercurrenthealth = attackCol.GetComponent<PlayerHealth>().currentHealth -= enemyData.baseAttack;
+                int playercurrenthealth = PlayerHealth.currentHealth -= enemyData.baseAttack;
                 Debug.Log(playercurrenthealth);
                 timer = 0;
             }

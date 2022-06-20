@@ -31,7 +31,7 @@ public class BulletMovement : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             collision.GetComponent<EnemyHealth>().currentHealth -= (bulletData.damage + playerData.baseAttack);
-            gameObject.SetActive(false);
+             gameObject.SetActive(false);
         }
     }
 }

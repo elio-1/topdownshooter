@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : Player
 {
-    public int currentHealth;
+    public static int currentHealth;
     void Awake()
     {
         currentHealth = playerData.health;
