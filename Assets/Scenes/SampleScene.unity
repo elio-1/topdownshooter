@@ -401,6 +401,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 25d24fc0fa2d1aa42b8275e5078730ed, type: 2}
   - {fileID: 11400000, guid: 612fc56862a493b4da678cf274cb8282, type: 2}
   - {fileID: 11400000, guid: fc6915bddfaf8ab46a2867551733a78f, type: 2}
+  - {fileID: 11400000, guid: 351e8df29a89fbc4b9ced2d04f9cd9eb, type: 2}
+  - {fileID: 11400000, guid: c30d921e23bf4274a9c54fec00790574, type: 2}
+  - {fileID: 11400000, guid: 6a00e40c99cd5bd49b558d921bc2335e, type: 2}
   bonusGameObjectList: []
   _bonusPrefab: {fileID: 626583119650030764, guid: e8f9ac818b11d31409b91b81716eeb14, type: 3}
 --- !u!1 &519420028

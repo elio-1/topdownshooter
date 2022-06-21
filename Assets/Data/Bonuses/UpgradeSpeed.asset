@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: baef64c7fafbefc42af448cdb816a395, type: 3}
-  m_Name: ChangeWeaponToThirdGun
+  m_Name: UpgradeSpeed
   m_EditorClassIdentifier: 
-  m_title: AK
-  m_description: Change your weapon, if you already have this weapon equiped, increase
-    the number of bullet that you shoot by 1.
-  m_icon: {fileID: 21300000, guid: d1acda58d6bfb0d43895f1efda0e7a90, type: 3}
-  m_currentBonusType: 2
-  m_bonusValue: 0
-  weapon: {fileID: 11400000, guid: e5e385880c87c7144b9fb21be9cb7b95, type: 2}
+  m_title: +20 Movement speed
+  m_description: Upgrade your moving speed.
+  m_icon: {fileID: 0}
+  m_currentBonusType: 3
+  m_bonusValue: 20
+  weapon: {fileID: 0}

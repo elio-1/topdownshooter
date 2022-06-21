@@ -229,6 +229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dae03f5573f9454181e8a5b2e23f223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 8bb995c22d9c42c4fb2f67fc0a0844c6, type: 2}
+  bonus: {fileID: 0}
   icon: {fileID: 626583120974201142}
   title: {fileID: 626583119566659647}
   description: {fileID: 626583120795477427}

@@ -21,7 +21,7 @@ public class IBonus : Player
     public void ChooseBonus()
     {
         Debug.Log("Button pressed");
-        
+        Debug.Log(bonus);
         switch (bonus.m_currentBonusType)
         {
             case bonusType.Attack:
@@ -46,9 +46,13 @@ public class IBonus : Player
                         PlayerShoot.ChangeWeapon(bonus.weapon);
                     }
                 }
+                else
+                {
+                    return;
+                }
                 break;
             case bonusType.Speed:
-                playerData.speed += bonus.m_bonusValue;
+                playerData.speed += (float)bonus.m_bonusValue;
 
                 break;
             default:

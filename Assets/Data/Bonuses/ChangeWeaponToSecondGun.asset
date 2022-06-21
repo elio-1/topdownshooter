@@ -16,6 +16,6 @@ MonoBehaviour:
   m_description: Change your weapon, if you already hve this weapon equiped, increase
     the number of bullet that you shoot by 1.
   m_icon: {fileID: 21300000, guid: c06a6720ef254a74f862c36026034566, type: 3}
-  bonusAttack: 0
+  m_currentBonusType: 2
+  m_bonusValue: 0
   weapon: {fileID: 11400000, guid: 58b2f9ad89ab8d041aa7cfc077144462, type: 2}
-  bonusType: 2

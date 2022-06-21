@@ -28,23 +28,34 @@ public class BonusList : MonoBehaviour
     }
     public void Display3RandomBonuses()
     {
+        
+        int counter = 0;
+        
         int rdm = Random.Range(0, bonusGameObjectList.Count +1 );
         int rdm2 = Random.Range(0, bonusGameObjectList.Count +1 );
         int rdm3 = Random.Range(0, bonusGameObjectList.Count + 1);
-        foreach (GameObject bonus in bonusGameObjectList)
+        while (counter < 3)
         {
-            if (bonusGameObjectList.IndexOf(bonus) == rdm)
+            foreach (GameObject bonus in bonusGameObjectList)
             {
-                bonus.SetActive(true);
+                if (bonus.activeInHierarchy)
+                {
+                    counter++;
+                }
+                if (bonusGameObjectList.IndexOf(bonus) == rdm)
+                {
+                    bonus.SetActive(true);
+                }
+                if (bonusGameObjectList.IndexOf(bonus) == rdm2)
+                {
+                    bonus.SetActive(true);
+                }
+                if (bonusGameObjectList.IndexOf(bonus) == rdm3)
+                {
+                    bonus.SetActive(true);
+                }
             }
-            if (bonusGameObjectList.IndexOf(bonus) == rdm2)
-            {
-                bonus.SetActive(true);
-            }
-            if (bonusGameObjectList.IndexOf(bonus) == rdm3)
-            {
-                bonus.SetActive(true);
-            }
+
         }
     }
 }
