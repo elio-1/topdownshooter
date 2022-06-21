@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 464c52ac3d0037048a6b4827054e80a0, type: 3}
-  m_Name: ThirdGun
+  m_Name: RocketLuncher
   m_EditorClassIdentifier: 
-  gunName: ThirdGun
-  fireRate: 0.08
-  damage: 15
-  projectile: {fileID: 7131473093684528774, guid: 251b62a630c1875408ed433c189ca47c, type: 3}
-  skin: {fileID: 21300000, guid: d1acda58d6bfb0d43895f1efda0e7a90, type: 3}
+  gunName: RocketLuncher
+  fireRate: 0.5
+  damage: 10
+  projectile: {fileID: 3209624158839912587, guid: 65df990440699fc43b04358e815603f3, type: 3}
+  skin: {fileID: 21300000, guid: c06a6720ef254a74f862c36026034566, type: 3}
   weaponLevel: 0
-  bulletName: ThirdBullet
-  bulletSpeed: 400
-  shakeMagnitude: 0.1
-  shakeRoughness: 10
-  shakeFadeInTime: 0.05
-  shakeFadeOutTime: 0.05
+  bulletName: Rocket
+  bulletSpeed: 200
+  shakeMagnitude: 0.5
+  shakeRoughness: 5
+  shakeFadeInTime: 0.08
+  shakeFadeOutTime: 0.08

@@ -23,7 +23,7 @@ public class BulletMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rb2D.velocity = transform.right * PlayerShoot.currentWeapon.bulletSpeed;
+        rb2D.velocity = transform.right * PlayerShoot.currentWeapon.bulletSpeed * Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

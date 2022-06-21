@@ -19,7 +19,7 @@ MonoBehaviour:
   skin: {fileID: 21300000, guid: 412e25359354d404ba161cbd414c6aae, type: 3}
   weaponLevel: 0
   bulletName: BasicBullet
-  bulletSpeed: 7
+  bulletSpeed: 200
   shakeMagnitude: 0.2
   shakeRoughness: 3.45
   shakeFadeInTime: 0.05
