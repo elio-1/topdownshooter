@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : Player
+public class PlayerHealth : MonoBehaviour
 {
     public static int currentHealth;
+    [SerializeField] Character playerData;
+
     void Awake()
     {
         currentHealth = playerData.health;

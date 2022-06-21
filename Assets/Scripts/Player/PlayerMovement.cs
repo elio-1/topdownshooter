@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : Player
+public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rigidbody2d;
     Vector2 _direction;
+    [SerializeField] Character playerData;
+
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();

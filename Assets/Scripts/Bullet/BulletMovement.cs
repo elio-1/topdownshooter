@@ -6,17 +6,17 @@ public class BulletMovement : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb2D;
     [SerializeField] Weapon bulletData;
-    PlayerShoot PlayerShoot;
+    Transform _player;
     [SerializeField] Character playerData;
     public GameObject[] m_bulletsGO;
 
     private void Awake()
     {
-        PlayerShoot = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShoot>();
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
     }
     private void Update()
     {
-        if ((transform.position - PlayerShoot.transform.position).magnitude > 10)
+        if ((transform.position - _player.transform.position).magnitude > 15)
         {
             gameObject.SetActive(false);
         }

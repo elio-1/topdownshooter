@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class IBonus : Player
+public class IBonus : MonoBehaviour
 {
     public Bonus bonus;
     [SerializeField] Image icon;
     [SerializeField] TextMeshProUGUI title;
     [SerializeField] TextMeshProUGUI description;
+    [SerializeField] Character playerData;
+
 
     public void InitializeBonus(Bonus bonusData) 
     {

@@ -17,3 +17,4 @@ MonoBehaviour:
   speed: 100
   baseAttack: 0
   baseDefence: 0
+  attackSpeed: 0

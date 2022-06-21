@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class HealthBar : PlayerHealth
+public class HealthBar : MonoBehaviour
 {
     Slider Slider;
+    [SerializeField] Character playerData;
+
     void Awake()
     {
         Slider = GetComponent<Slider>();
@@ -17,6 +19,6 @@ public class HealthBar : PlayerHealth
     // Update is called once per frame
     void Update()
     {
-        Slider.value = currentHealth;
+        Slider.value = PlayerHealth.currentHealth;
     }
 }
