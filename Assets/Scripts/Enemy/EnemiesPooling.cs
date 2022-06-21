@@ -40,6 +40,7 @@ public class EnemiesPooling : MonoBehaviour
                     EnemyMovement enemy = m_EnemiesPooled[i].GetComponent<EnemyToSpawn>().m_enemiesGO[y].GetComponent<EnemyMovement>();
                     if ( enemy.enemyData.charName == enemyName)
                     {
+                        enemy.transform.parent.gameObject.SetActive(true);
                         enemy.gameObject.SetActive(true);
                         return m_EnemiesPooled[i];
                     }

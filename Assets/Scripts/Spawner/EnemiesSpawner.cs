@@ -51,7 +51,7 @@ public class EnemiesSpawner : MonoBehaviour
                     randomPos += new Vector3(Random.Range(-10, 10), Random.Range(-8, -11), 0);
 
                 }
-                enemies.transform.position = randomPos ;
+            enemies.transform.position = randomPos ;
             enemies.SetActive(true);
             }
         }

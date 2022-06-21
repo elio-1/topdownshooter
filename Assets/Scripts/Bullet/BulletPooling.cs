@@ -23,6 +23,7 @@ public class BulletPooling : MonoBehaviour
         for (int i = 0; i < m_amountToPool; i++)
         {
             bullet = Instantiate(m_bulletPrefabs);
+            bullet.transform.SetParent(transform);
             bullet.SetActive(false);
             m_bulletPooled.Add(bullet);
      

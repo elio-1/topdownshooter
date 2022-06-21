@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baef64c7fafbefc42af448cdb816a395, type: 3}
+  m_Name: Bonus3
+  m_EditorClassIdentifier: 
+  m_title: AK
+  m_description: Powerfull gun
+  m_icon: {fileID: 21300000, guid: d1acda58d6bfb0d43895f1efda0e7a90, type: 3}
+  weapon: {fileID: 11400000, guid: e5e385880c87c7144b9fb21be9cb7b95, type: 2}

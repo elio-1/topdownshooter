@@ -5,15 +5,32 @@ using UnityEngine.UI;
 using TMPro;
 public class IBonus : MonoBehaviour
 {
-    [SerializeField] Bonus bonusData;
+    public Bonus bonus;
     [SerializeField] Image icon;
     [SerializeField] TextMeshProUGUI title;
     [SerializeField] TextMeshProUGUI description;
 
-    private void Awake()
+    public void InitializeBonus(Bonus bonusData) 
     {
         icon.overrideSprite = bonusData.m_icon;
         title.text = bonusData.m_title;
         description.text = bonusData.m_description;
+        bonus = bonusData;
+    }
+
+    public void ChooseBonus()
+    {
+        Debug.Log("Button pressed");
+        if (PlayerShoot.currentWeapon == bonus.weapon)
+        {
+            if (PlayerShoot.weaponLevel < PlayerShoot.weaponLevelMax - 1)
+            {
+            PlayerShoot.weaponLevel += 1;
+            }
+        }
+        else
+        {
+        PlayerShoot.ChangeWeapon(bonus.weapon);
+        }
     }
 }

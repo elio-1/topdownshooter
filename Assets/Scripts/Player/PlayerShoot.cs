@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
-    public Weapon currentWeapon;
-    [SerializeField] Transform _barrel;
+    public static Weapon currentWeapon;
+    public static int weaponLevel = 0;
+    public static int weaponLevelMax;
+    [SerializeField] Weapon _startingWeapon;
+    [SerializeField] Transform[] _barrel;
     [SerializeField] Transform _barrelParent;
 
     float _shakeMagnitude;
@@ -20,7 +23,10 @@ public class PlayerShoot : MonoBehaviour
 
     private void Awake()
     {
-       // SpriteRenderer = _barrelParent.GetComponent<SpriteRenderer>();
+        // SpriteRenderer = _barrelParent.GetComponent<SpriteRenderer>();
+        currentWeapon = _startingWeapon;
+        weaponLevel = 0;
+        weaponLevelMax = _barrel.Length;
     }
     private void Start()
     {
@@ -28,6 +34,7 @@ public class PlayerShoot : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log(weaponLevel);
         _shakeMagnitude = currentWeapon.shakeMagnitude;
         //SpriteRenderer.sprite = currentWeapon.skin;
         _shakeRoughness = currentWeapon.shakeRoughness;
@@ -35,29 +42,26 @@ public class PlayerShoot : MonoBehaviour
         _shakeFadeOutTime = currentWeapon.shakeFadeOutTime;
         _fireRate = currentWeapon.fireRate;
         _timer += Time.deltaTime;
-            GameObject bullet = BulletPooling.m_BulletInstance.GetBulletObject();
         if (Input.GetMouseButton(0) && _timer > _fireRate)
         {
-            if (bullet != null)
+            for (int i = 0; i < weaponLevel + 1; i++)
             {
                 EZCameraShake.CameraShaker.Instance.ShakeOnce(_shakeMagnitude, _shakeRoughness, _shakeFadeInTime, _shakeFadeOutTime);
-                bullet.transform.position = _barrel.position;
-                bullet.transform.rotation = _barrelParent.localRotation;
-                bullet.SetActive(true);
-                _timer = 0;
+                GameObject bullet = BulletPooling.m_BulletInstance.GetBulletObject();
+                if (bullet != null)
+                {
+                    bullet.transform.position = _barrel[i].position;
+                    bullet.transform.rotation = _barrel[i].rotation;
+                    bullet.SetActive(true);
+                }
             }
-
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            ChangeWeapon();
-            
+            _timer = 0;
         }
     }
-    void ChangeWeapon()
+    public static void ChangeWeapon(Weapon weapon)
     {
-        
 
+        currentWeapon = weapon;
         GameObject.Find("BulletPooling").GetComponent<BulletPooling>().ChangeActiveBullet(currentWeapon.bulletName);
     }
 }

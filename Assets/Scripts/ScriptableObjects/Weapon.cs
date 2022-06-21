@@ -11,6 +11,7 @@ public class Weapon : ScriptableObject
     public int damage;
     public GameObject projectile;
     public Sprite skin;
+    public int weaponLevel;
 
     [Header("Bullet Behavior")]
     public string bulletName;
