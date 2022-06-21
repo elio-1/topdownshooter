@@ -34,7 +34,6 @@ public class PlayerShoot : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(weaponLevel);
         _shakeMagnitude = currentWeapon.shakeMagnitude;
         //SpriteRenderer.sprite = currentWeapon.skin;
         _shakeRoughness = currentWeapon.shakeRoughness;

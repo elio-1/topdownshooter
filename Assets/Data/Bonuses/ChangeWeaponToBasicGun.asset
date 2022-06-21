@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: baef64c7fafbefc42af448cdb816a395, type: 3}
-  m_Name: Bonus2
+  m_Name: ChangeWeaponToBasicGun
   m_EditorClassIdentifier: 
-  m_title: Uzi
-  m_description: The pocket gun
-  m_icon: {fileID: 21300000, guid: c06a6720ef254a74f862c36026034566, type: 3}
-  weapon: {fileID: 11400000, guid: 58b2f9ad89ab8d041aa7cfc077144462, type: 2}
+  m_title: Basic Gun
+  m_description: Change your weapon, if you already hve this weapon equiped, increase
+    the number of bullet that you shoot by 1.
+  m_icon: {fileID: 21300000, guid: 412e25359354d404ba161cbd414c6aae, type: 3}
+  bonusAttack: 0
+  weapon: {fileID: 11400000, guid: 09c86682283147a4e846783edf2ef443, type: 2}
+  bonusType: 2

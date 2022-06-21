@@ -8,6 +8,7 @@ public class HealthBar : PlayerHealth
     void Awake()
     {
         Slider = GetComponent<Slider>();
+
         Slider.maxValue = playerData.health;
         Slider.minValue = 0;
 

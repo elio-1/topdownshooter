@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class IBonus : MonoBehaviour
+public class IBonus : Player
 {
     public Bonus bonus;
     [SerializeField] Image icon;
@@ -21,16 +21,38 @@ public class IBonus : MonoBehaviour
     public void ChooseBonus()
     {
         Debug.Log("Button pressed");
-        if (PlayerShoot.currentWeapon == bonus.weapon)
+        
+        switch (bonus.m_currentBonusType)
         {
-            if (PlayerShoot.weaponLevel < PlayerShoot.weaponLevelMax - 1)
-            {
-            PlayerShoot.weaponLevel += 1;
-            }
-        }
-        else
-        {
-        PlayerShoot.ChangeWeapon(bonus.weapon);
+            case bonusType.Attack:
+                playerData.baseAttack += bonus.m_bonusValue;
+                break;
+            case bonusType.Defense:
+                playerData.baseDefence += bonus.m_bonusValue;
+
+                break;
+            case bonusType.Weapon:
+                if (bonus.weapon != null)
+                {
+                    if (PlayerShoot.currentWeapon == bonus.weapon)
+                    {
+                        if (PlayerShoot.weaponLevel < PlayerShoot.weaponLevelMax - 1)
+                        {
+                            PlayerShoot.weaponLevel += 1;
+                        }
+                    }
+                    else
+                    {
+                        PlayerShoot.ChangeWeapon(bonus.weapon);
+                    }
+                }
+                break;
+            case bonusType.Speed:
+                playerData.speed += bonus.m_bonusValue;
+
+                break;
+            default:
+                break;
         }
     }
 }
