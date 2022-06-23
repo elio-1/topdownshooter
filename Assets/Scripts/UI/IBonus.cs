@@ -61,7 +61,7 @@ public class IBonus : MonoBehaviour
             default:
                 break;
         }
-        Time.timeScale = 1;
+        PauseUnpause.PauseUnpauseInstance.UnPause();
 
     }
     public void SetParentActive(bool active)

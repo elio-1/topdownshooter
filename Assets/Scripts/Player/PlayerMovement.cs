@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rigidbody2d;
@@ -30,6 +31,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigidbody2d.velocity = _direction.normalized * playerData.speed * Time.deltaTime;
+        switch (PlayerHealth.currentState)
+        {
+            case PlayerState.Alive:
+                rigidbody2d.velocity = _direction.normalized * playerData.speed * Time.deltaTime;
+
+                break;
+            case PlayerState.Dead:
+                break;
+            default:
+                break;
+        }
+        
     }
 }

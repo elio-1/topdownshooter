@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerShoot : MonoBehaviour
 {
     public static Weapon currentWeapon;
-    
+
     public static int weaponLevel = 0;
     public static int weaponLevelMax;
     [SerializeField] Weapon _startingWeapon;
@@ -31,6 +32,7 @@ public class PlayerShoot : MonoBehaviour
         currentWeapon = _startingWeapon;
         weaponLevel = 0;
         weaponLevelMax = _barrel.Length;
+ 
     }
     private void Start()
     {
@@ -38,6 +40,7 @@ public class PlayerShoot : MonoBehaviour
     }
     private void Update()
     {
+
         _shakeMagnitude = currentWeapon.shakeMagnitude;
         //SpriteRenderer.sprite = currentWeapon.skin;
         _shakeRoughness = currentWeapon.shakeRoughness;
@@ -46,36 +49,49 @@ public class PlayerShoot : MonoBehaviour
         _fireRate = currentWeapon.fireRate;
         _timer += Time.deltaTime;
         _timer2 += Time.deltaTime;
-        if (Input.GetMouseButton(0) && _timer > _fireRate)
+
+        switch (PlayerHealth.currentState)
         {
-            for (int i = 0; i < weaponLevel + 1; i++)
-            {
-                EZCameraShake.CameraShaker.Instance.ShakeOnce(_shakeMagnitude, _shakeRoughness, _shakeFadeInTime, _shakeFadeOutTime);
-                GameObject bullet = BulletPooling.m_BulletInstance.GetBulletObject();
-                if (bullet != null)
+            case PlayerState.Alive:
+                if (Input.GetMouseButton(0) && _timer > _fireRate && !PauseUnpause.PauseUnpauseInstance.IsPause())
                 {
-                    bullet.transform.position = _barrel[i].position;
-                    bullet.transform.rotation = _barrel[i].rotation;
-                    bullet.SetActive(true);
+                    for (int i = 0; i < weaponLevel + 1; i++)
+                    {
+                        EZCameraShake.CameraShaker.Instance.ShakeOnce(_shakeMagnitude, _shakeRoughness, _shakeFadeInTime, _shakeFadeOutTime);
+                        GameObject bullet = BulletPooling.m_BulletInstance.GetBulletObject();
+                        if (bullet != null)
+                        {
+                            bullet.transform.position = _barrel[i].position;
+                            bullet.transform.rotation = _barrel[i].rotation;
+                            bullet.SetActive(true);
+                        }
+                    }
+                    _timer = 0;
                 }
-            }
-            _timer = 0;
-        }
-        if (Input.GetMouseButton(1) && _timer2 > _rocketCD)
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                EZCameraShake.CameraShaker.Instance.ShakeOnce(_shakeMagnitude, _shakeRoughness*1.4f, _shakeFadeInTime, _shakeFadeOutTime);
-                GameObject rocket = RocketPooling.m_rocketInstance.GetBulletRocket();
-                if (rocket != null)
+                if (Input.GetMouseButton(1) && _timer2 > _rocketCD && !PauseUnpause.PauseUnpauseInstance.IsPause())
                 {
-                    rocket.transform.position = _barrel[i].position;
-                    rocket.transform.rotation = _barrel[i].rotation;
-                    rocket.SetActive(true);
+                    for (int i = 0; i < 3; i++)
+                    {
+                        EZCameraShake.CameraShaker.Instance.ShakeOnce(_shakeMagnitude, _shakeRoughness * 1.4f, _shakeFadeInTime, _shakeFadeOutTime);
+                        GameObject rocket = RocketPooling.m_rocketInstance.GetBulletRocket();
+                        if (rocket != null)
+                        {
+                            rocket.transform.position = _barrel[i].position;
+                            rocket.transform.rotation = _barrel[i].rotation;
+                            rocket.SetActive(true);
+                        }
+                    }
+                    _timer2 = 0;
                 }
-            }
-            _timer2 = 0;
+                break;
+            case PlayerState.Dead:
+                break;
+            default:
+                break;
         }
+        
+
+        
     }
     public static void ChangeWeapon(Weapon weapon)
     {

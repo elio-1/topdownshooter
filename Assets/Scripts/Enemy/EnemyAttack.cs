@@ -16,7 +16,6 @@ public class EnemyAttack : Enemy
         Collider2D attackCol = Physics2D.OverlapCircle(_attackPoint.transform.position, _radius, _playerLayer);
         if (attackCol != null)
         {
-            Debug.Log("hit");
 
             if ( timer > enemyData.attackSpeed )
             {

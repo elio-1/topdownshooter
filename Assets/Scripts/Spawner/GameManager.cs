@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] UnityEvent m_UpgradeEvent;
+    [SerializeField] UnityEvent m_UpgradeEvent = new UnityEvent();
+    [SerializeField] UnityEvent m_PauseEvent = new UnityEvent();
+    [SerializeField] UnityEvent m_UnPauseEvent = new UnityEvent();
     [SerializeField] int _enemiesToSpawn;
     [SerializeField] float _enemiesSpawnRate = 5;
     [SerializeField] int _enemyToSpawnIncrease = 20;
@@ -18,10 +20,13 @@ public class GameManager : MonoBehaviour
     private string _enemyNameToSpawn;
     private int _waveCount = 0;
     private int _counterCurrentEnemyNameIndex = 0;
+
     private void Awake()
     {
         _waveCount = 0;
         _enemyNameToSpawn = _enemiesData[0].charName;
+        Time.timeScale = 1;
+
     }
 
     void Update()
@@ -40,12 +45,24 @@ public class GameManager : MonoBehaviour
         _timer += Time.deltaTime;
         if (_timer > _everyXsecIncreaseDifficulty)
         {
-            Time.timeScale = 0;
             m_UpgradeEvent.Invoke();
+            PauseUnpause.PauseUnpauseInstance.Pause();
             _timer = 0;
         }
-
         
+        if (Input.GetKeyDown(KeyCode.Escape) && PauseUnpause.PauseUnpauseInstance.IsPause())
+        {
+            Debug.Log("Trying to UNpause");
+
+            UnPause();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape) && !PauseUnpause.PauseUnpauseInstance.IsPause())
+        {
+            Debug.Log("Trying to pause");
+            Pause();
+        }   
+           
+
     }
 
     public void IncreaseEnemiesDifficulty()
@@ -55,5 +72,18 @@ public class GameManager : MonoBehaviour
         _enemyNameToSpawn = _enemiesData[_counterCurrentEnemyNameIndex].charName;
         _enemiesToSpawn += _enemyToSpawnIncrease;
         if (_counterCurrentEnemyNameIndex < _enemiesData.Length-1) _counterCurrentEnemyNameIndex++;
+    }
+
+    public void UnPause()
+    {
+        m_UnPauseEvent.Invoke();
+        PauseUnpause.PauseUnpauseInstance.UnPause();
+
+    }
+    public void Pause()
+    {
+        m_PauseEvent.Invoke();
+        PauseUnpause.PauseUnpauseInstance.Pause();
+
     }
 }
