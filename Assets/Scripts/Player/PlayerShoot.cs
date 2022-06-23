@@ -5,21 +5,25 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
     public static Weapon currentWeapon;
+    
     public static int weaponLevel = 0;
     public static int weaponLevelMax;
     [SerializeField] Weapon _startingWeapon;
     [SerializeField] Transform[] _barrel;
     [SerializeField] Transform _barrelParent;
+    [SerializeField] float _rocketCD = 4;
 
     float _shakeMagnitude;
     float _shakeRoughness;
     float _shakeFadeInTime;
     float _shakeFadeOutTime;
     float _timer = 0 ;
+    float _timer2 = 0;
     float _fireRate;
+    float _specialFireRate;
 
 
-   // SpriteRenderer SpriteRenderer;
+    // SpriteRenderer SpriteRenderer;
 
     private void Awake()
     {
@@ -41,6 +45,7 @@ public class PlayerShoot : MonoBehaviour
         _shakeFadeOutTime = currentWeapon.shakeFadeOutTime;
         _fireRate = currentWeapon.fireRate;
         _timer += Time.deltaTime;
+        _timer2 += Time.deltaTime;
         if (Input.GetMouseButton(0) && _timer > _fireRate)
         {
             for (int i = 0; i < weaponLevel + 1; i++)
@@ -55,6 +60,21 @@ public class PlayerShoot : MonoBehaviour
                 }
             }
             _timer = 0;
+        }
+        if (Input.GetMouseButton(1) && _timer2 > _rocketCD)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                EZCameraShake.CameraShaker.Instance.ShakeOnce(_shakeMagnitude, _shakeRoughness*1.4f, _shakeFadeInTime, _shakeFadeOutTime);
+                GameObject rocket = RocketPooling.m_rocketInstance.GetBulletRocket();
+                if (rocket != null)
+                {
+                    rocket.transform.position = _barrel[i].position;
+                    rocket.transform.rotation = _barrel[i].rotation;
+                    rocket.SetActive(true);
+                }
+            }
+            _timer2 = 0;
         }
     }
     public static void ChangeWeapon(Weapon weapon)

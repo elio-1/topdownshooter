@@ -6,6 +6,7 @@ public class BulletMovement : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb2D;
     [SerializeField] Weapon bulletData;
+    [SerializeField] float maxDistance = 17;
     Transform _player;
     [SerializeField] Character playerData;
     public GameObject[] m_bulletsGO;
@@ -16,7 +17,7 @@ public class BulletMovement : MonoBehaviour
     }
     private void Update()
     {
-        if ((transform.position - _player.transform.position).magnitude > 15)
+        if ((transform.position - _player.transform.position).magnitude > maxDistance)
         {
             gameObject.SetActive(false);
         }

@@ -4,25 +4,16 @@ using UnityEngine;
 
 public class EnemiesSpawner : MonoBehaviour
 {
-    public bool spawnEnemies = true;
+    public static EnemiesSpawner m_enemiesSpawnerInstance;
     [SerializeField] Transform _player;
-     [SerializeField] float _radius = 20;
-    [SerializeField] int _enemiesToSpawn;
-    [SerializeField] float _enemiesSpawnRate = 5;
-
-    private float _spawntimer = 0;
-    private void Update()
+    
+    
+    
+    private void Awake()
     {
-        _spawntimer += Time.deltaTime;
-        if (spawnEnemies || _spawntimer > _enemiesSpawnRate)
-        {
-            SpawnEnemies(_enemiesToSpawn, "Enemy2");
-            spawnEnemies = false;
-            _spawntimer = 0;
-        }
-            
-        
+        m_enemiesSpawnerInstance = this;
     }
+
     public void SpawnEnemies(int count, string name)
     {
         for (int i = 0; i < count; i++)

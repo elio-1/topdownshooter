@@ -937,6 +937,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034bd1af8fec80a46967ae4d2af4ed83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_UpgradeEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1186546329}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: IncreaseEnemiesDifficulty
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 492293784}
+        m_TargetAssemblyTypeName: BonusList, Assembly-CSharp
+        m_MethodName: Display3RandomBonuses
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  _enemiesToSpawn: 0
+  _enemiesSpawnRate: 5
+  _enemyToSpawnIncrease: 20
+  _enemiesData:
+  - {fileID: 11400000, guid: 4173fce069662bb47bc9df0c1d78971c, type: 2}
+  - {fileID: 11400000, guid: 31d12c6096ddf954a8a6ac0358ee1f6a, type: 2}
+  _SpawnNow: 0
+  _everyXsecIncreaseDifficulty: 2
+  spawnEnemies: 1
 --- !u!4 &1186546330
 Transform:
   m_ObjectHideFlags: 0
@@ -1004,6 +1040,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1706443773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1706443775}
+  - component: {fileID: 1706443774}
+  m_Layer: 0
+  m_Name: RocketPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1706443774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706443773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b4a38fa07eb734bbaef01b1842f0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rocketPooled: []
+  m_rocketPrefabs: {fileID: 3209624158839912587, guid: 65df990440699fc43b04358e815603f3, type: 3}
+  m_amountToPool: 200
+--- !u!4 &1706443775
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706443773}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -25.545864, y: -0.8905723, z: 0.70631135}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1798588125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,11 +1116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3f51773112f7224fa44d927e66ee990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnEnemies: 1
   _player: {fileID: 144767503}
-  _radius: 100
-  _enemiesToSpawn: 100
-  _enemiesSpawnRate: 10
 --- !u!4 &1798588127
 Transform:
   m_ObjectHideFlags: 0
@@ -1512,10 +1591,6 @@ PrefabInstance:
     - target: {fileID: 3209624158839912587, guid: 65df990440699fc43b04358e815603f3, type: 3}
       propertyPath: m_Name
       value: Rocket
-      objectReference: {fileID: 0}
-    - target: {fileID: 5492537833344779097, guid: 65df990440699fc43b04358e815603f3, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65df990440699fc43b04358e815603f3, type: 3}

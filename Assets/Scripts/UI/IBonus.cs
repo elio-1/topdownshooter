@@ -6,6 +6,7 @@ using TMPro;
 public class IBonus : MonoBehaviour
 {
     public Bonus bonus;
+
     [SerializeField] Image icon;
     [SerializeField] TextMeshProUGUI title;
     [SerializeField] TextMeshProUGUI description;
@@ -60,5 +61,6 @@ public class IBonus : MonoBehaviour
             default:
                 break;
         }
+        
     }
 }
