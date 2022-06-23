@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charName: Enemy2
   health: 5
-  speed: 25
+  speed: 30
   baseAttack: 5
   baseDefence: 0
   attackSpeed: 1.5

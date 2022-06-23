@@ -135,7 +135,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 4173fce069662bb47bc9df0c1d78971c, type: 2}
-  player: {fileID: 6280387212361337121, guid: fcef350bb542bf2418a8daa42222102e, type: 3}
 --- !u!50 &4398124720507066755
 Rigidbody2D:
   serializedVersion: 4
@@ -215,6 +214,7 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 8
+  _playerData: {fileID: 11400000, guid: 8bb995c22d9c42c4fb2f67fc0a0844c6, type: 2}
 --- !u!1 &4398124721685819818
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +266,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 31d12c6096ddf954a8a6ac0358ee1f6a, type: 2}
-  player: {fileID: 6280387212361337121, guid: fcef350bb542bf2418a8daa42222102e, type: 3}
 --- !u!50 &4398124721685819793
 Rigidbody2D:
   serializedVersion: 4
@@ -346,6 +345,7 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 8
+  _playerData: {fileID: 11400000, guid: 8bb995c22d9c42c4fb2f67fc0a0844c6, type: 2}
 --- !u!1 &4398124722030856389
 GameObject:
   m_ObjectHideFlags: 0

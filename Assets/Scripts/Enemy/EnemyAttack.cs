@@ -7,6 +7,7 @@ public class EnemyAttack : Enemy
     [SerializeField] Transform _attackPoint;
     [SerializeField] float _radius;
     [SerializeField] LayerMask _playerLayer;
+    [SerializeField] Character _playerData;
     float timer = 0;
 
     private void Update()
@@ -19,9 +20,17 @@ public class EnemyAttack : Enemy
 
             if ( timer > enemyData.attackSpeed )
             {
-                int playercurrenthealth = PlayerHealth.currentHealth -= enemyData.baseAttack;
-                Debug.Log(playercurrenthealth);
+                if (_playerData.baseDefence > enemyData.baseAttack)
+                {
+                    return;
+                }
+                else
+                {
+
+                PlayerHealth.currentHealth -= (enemyData.baseAttack - _playerData.baseDefence);
+                
                 timer = 0;
+                }
             }
         }
     }

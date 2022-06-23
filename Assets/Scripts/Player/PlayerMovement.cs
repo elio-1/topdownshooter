@@ -8,6 +8,13 @@ public class PlayerMovement : MonoBehaviour
     Vector2 _direction;
     [SerializeField] Character playerData;
 
+    private void Awake()
+    {
+        playerData.speed = 100;
+        playerData.baseAttack = 0;
+        playerData.baseDefence = 0;
+
+    }
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();

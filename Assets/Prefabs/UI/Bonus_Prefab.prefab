@@ -310,9 +310,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 626583119650030764}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 278553798}
+        m_TargetAssemblyTypeName: IBonus, Assembly-CSharp
+        m_MethodName: SetParentActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

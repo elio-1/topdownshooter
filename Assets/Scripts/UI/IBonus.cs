@@ -13,7 +13,7 @@ public class IBonus : MonoBehaviour
     [SerializeField] Character playerData;
 
 
-    public void InitializeBonus(Bonus bonusData) 
+    public void InitializeBonus(Bonus bonusData)
     {
         icon.overrideSprite = bonusData.m_icon;
         title.text = bonusData.m_title;
@@ -61,6 +61,11 @@ public class IBonus : MonoBehaviour
             default:
                 break;
         }
-        
+        Time.timeScale = 1;
+
+    }
+    public void SetParentActive(bool active)
+    {
+        transform.parent.gameObject.SetActive(active);
     }
 }

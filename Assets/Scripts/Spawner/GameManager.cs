@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
         _timer += Time.deltaTime;
         if (_timer > _everyXsecIncreaseDifficulty)
         {
+            Time.timeScale = 0;
             m_UpgradeEvent.Invoke();
             _timer = 0;
         }
@@ -50,9 +51,9 @@ public class GameManager : MonoBehaviour
     public void IncreaseEnemiesDifficulty()
     {
         Debug.Log("Increasing difficulty!");
-
+        Debug.Log(_enemiesData.Length);
         _enemyNameToSpawn = _enemiesData[_counterCurrentEnemyNameIndex].charName;
         _enemiesToSpawn += _enemyToSpawnIncrease;
-        if (_counterCurrentEnemyNameIndex < _enemiesData.Length) _counterCurrentEnemyNameIndex++;
+        if (_counterCurrentEnemyNameIndex < _enemiesData.Length-1) _counterCurrentEnemyNameIndex++;
     }
 }
