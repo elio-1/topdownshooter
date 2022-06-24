@@ -16,6 +16,7 @@ public class RocketMovemnt : MonoBehaviour
     [SerializeField] float maxDistance = 20;
     [SerializeField] float _explosionRadius = .8f;
     [SerializeField] LayerMask _enemyLayer;
+     ParticleSystem _particleSystem;
 
     private float _changeDirTimer = 0;
     private float _zigzagtimer;
@@ -27,6 +28,8 @@ public class RocketMovemnt : MonoBehaviour
     {
         _rb2d = GetComponent<Rigidbody2D>();
         _player = GameObject.FindGameObjectWithTag("Player").transform;
+        _particleSystem = GetComponent<ParticleSystem>();
+
     }
     private void Update()
     {
@@ -101,6 +104,7 @@ public class RocketMovemnt : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+            _particleSystem.Play();
             collision.GetComponent<EnemyHealth>().currentHealth -= (rocketData.damage + playerData.baseAttack);
             Collider2D[] aoe = Physics2D.OverlapCircleAll(transform.position, _explosionRadius, _enemyLayer);
             foreach (Collider2D col in aoe)
