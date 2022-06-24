@@ -14,6 +14,8 @@ public class RocketMovemnt : MonoBehaviour
     [SerializeField] float _zigzagRate = 0.2f;
     [SerializeField] float _changeDirectionRate = 0.5f;
     [SerializeField] float maxDistance = 20;
+    [SerializeField] float _explosionRadius = .8f;
+    [SerializeField] LayerMask _enemyLayer;
 
     private float _changeDirTimer = 0;
     private float _zigzagtimer;
@@ -100,7 +102,17 @@ public class RocketMovemnt : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             collision.GetComponent<EnemyHealth>().currentHealth -= (rocketData.damage + playerData.baseAttack);
+            Collider2D[] aoe = Physics2D.OverlapCircleAll(transform.position, _explosionRadius, _enemyLayer);
+            foreach (Collider2D col in aoe)
+            {
+                col.GetComponent<EnemyHealth>().currentHealth -= (rocketData.damage + playerData.baseAttack);
+            }
             gameObject.SetActive(false);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, _explosionRadius);
     }
 }

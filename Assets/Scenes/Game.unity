@@ -1529,6 +1529,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 7030591137463821671}
+        m_TargetAssemblyTypeName: BonusList, Assembly-CSharp
+        m_MethodName: Display3RandomBonuses
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_PauseEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1565,8 +1577,10 @@ MonoBehaviour:
   _enemiesData:
   - {fileID: 11400000, guid: 4173fce069662bb47bc9df0c1d78971c, type: 2}
   - {fileID: 11400000, guid: 31d12c6096ddf954a8a6ac0358ee1f6a, type: 2}
+  - {fileID: 11400000, guid: 8e88e87611573cb4790ac2276c281ff4, type: 2}
+  - {fileID: 11400000, guid: 45badd7a6fc09384d8b2e9cf6364a95a, type: 2}
   _SpawnNow: 0
-  _everyXsecIncreaseDifficulty: 120
+  _everyXsecIncreaseDifficulty: 30
   spawnEnemies: 1
 --- !u!4 &1186546330
 Transform:
@@ -2876,5 +2890,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: IBonuses
       objectReference: {fileID: 0}
+    - target: {fileID: 7030591137519610869, guid: 06f20405283542640bdd14fee70da5bc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06f20405283542640bdd14fee70da5bc, type: 3}
+--- !u!114 &7030591137463821671 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7030591137519610878, guid: 06f20405283542640bdd14fee70da5bc, type: 3}
+  m_PrefabInstance: {fileID: 7030591137463821670}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492293779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce98dfab4a955d44495dfbeab1ef99ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

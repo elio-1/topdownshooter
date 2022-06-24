@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int _enemiesToSpawn;
     [SerializeField] float _enemiesSpawnRate = 5;
     [SerializeField] int _enemyToSpawnIncrease = 20;
-    [Tooltip("Drag and Drop the enemies you want to be spawned")] [SerializeField] Character[] _enemiesData;
+    [Tooltip("Drag and Drop the enemies you want to be spawned, DRAG IT IN THE ENEMY GO LIST PREFAB TO")] [SerializeField] Character[] _enemiesData;
     [SerializeField] private bool _SpawnNow = false;
     [SerializeField] private float _everyXsecIncreaseDifficulty = 120;
     public bool spawnEnemies = true;
@@ -52,13 +52,10 @@ public class GameManager : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Escape) && PauseUnpause.PauseUnpauseInstance.IsPause())
         {
-            Debug.Log("Trying to UNpause");
-
             UnPause();
         }
         if (Input.GetKeyDown(KeyCode.Escape) && !PauseUnpause.PauseUnpauseInstance.IsPause())
         {
-            Debug.Log("Trying to pause");
             Pause();
         }   
            
@@ -67,11 +64,16 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseEnemiesDifficulty()
     {
-        Debug.Log("Increasing difficulty!");
-        Debug.Log(_enemiesData.Length);
         _enemyNameToSpawn = _enemiesData[_counterCurrentEnemyNameIndex].charName;
         _enemiesToSpawn += _enemyToSpawnIncrease;
-        if (_counterCurrentEnemyNameIndex < _enemiesData.Length-1) _counterCurrentEnemyNameIndex++;
+        if (_counterCurrentEnemyNameIndex < _enemiesData.Length - 1)
+        {
+            _counterCurrentEnemyNameIndex++;
+        }
+        else
+        {
+            _counterCurrentEnemyNameIndex = 0;
+        }
     }
 
     public void UnPause()
