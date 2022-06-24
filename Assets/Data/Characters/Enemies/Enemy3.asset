@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Enemy3
   m_EditorClassIdentifier: 
   charName: Enemy3
-  health: 50
-  speed: 30
+  health: 15
+  speed: 15
   baseAttack: 5
   baseDefence: 1
   attackSpeed: 1
