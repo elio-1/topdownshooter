@@ -35,7 +35,7 @@ public class EnemiesPooling : MonoBehaviour
         {
             if (!m_EnemiesPooled[i].activeInHierarchy)
             {
-                for (int y = 0; y < m_EnemiesPooled[0].GetComponent<EnemyToSpawn>().m_enemiesGO.Length; y++)
+                for (int y = 0; y < m_EnemiesPooled[0].GetComponent<EnemyToSpawn>().m_enemiesGO.Length+1; y++)
                 {
                     EnemyMovement enemy = m_EnemiesPooled[i].GetComponent<EnemyToSpawn>().m_enemiesGO[y].GetComponent<EnemyMovement>();
                     if ( enemy.enemyData.charName == enemyName)
