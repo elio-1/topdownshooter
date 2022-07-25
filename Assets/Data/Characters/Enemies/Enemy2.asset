@@ -18,3 +18,4 @@ MonoBehaviour:
   baseAttack: 5
   baseDefence: 0
   attackSpeed: 1.5
+  experience: 2

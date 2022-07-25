@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] UnityEvent m_UpgradeEvent = new UnityEvent();
+    [SerializeField] UnityEvent m_HarderEnemyEvent = new UnityEvent();
     [SerializeField] UnityEvent m_PauseEvent = new UnityEvent();
     [SerializeField] UnityEvent m_UnPauseEvent = new UnityEvent();
     [SerializeField] int _enemiesToSpawn;
@@ -25,11 +26,13 @@ public class GameManager : MonoBehaviour
         _enemyNameToSpawn = _enemiesData[0].charName;
         Time.timeScale = 1;
         _counterCurrentEnemyNameIndex = 0;
-
+        PlayerExp.experiencePoints = 0;
+        PlayerExp.expToLevelUp = 20;
     }
 
     void Update()
     {
+        Debug.Log(PlayerExp.experiencePoints);
         _spawntimer += Time.deltaTime;
         if (spawnEnemies)
         {
@@ -44,11 +47,16 @@ public class GameManager : MonoBehaviour
         _timer += Time.deltaTime;
         if (_timer > _everyXsecIncreaseDifficulty)
         {
-            m_UpgradeEvent.Invoke();
-            PauseUnpause.PauseUnpauseInstance.Pause();
+            m_HarderEnemyEvent.Invoke();
             _timer = 0;
         }
-        
+        if (PlayerExp.experiencePoints > PlayerExp.expToLevelUp )
+        {
+            m_UpgradeEvent.Invoke();
+            PauseUnpause.PauseUnpauseInstance.Pause();
+            PlayerExp.experiencePoints = 0;
+            PlayerExp.expToLevelUp *= 2;
+        }
         if (Input.GetKeyDown(KeyCode.Escape) && PauseUnpause.PauseUnpauseInstance.IsPause())
         {
             UnPause();

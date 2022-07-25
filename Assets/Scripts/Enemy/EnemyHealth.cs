@@ -16,6 +16,7 @@ public class EnemyHealth : Enemy
     {
         if (currentHealth <= 0)
         {
+            PlayerExp.experiencePoints  += enemyData.experience;
             gameObject.SetActive(false);
             gameObject.transform.parent.gameObject.SetActive(false);
             currentHealth = enemyData.health;

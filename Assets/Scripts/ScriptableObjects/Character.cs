@@ -11,4 +11,5 @@ public class Character : ScriptableObject
     public int baseAttack;
     public int baseDefence;
     public float attackSpeed;
+    public int experience;
 }
